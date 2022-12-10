@@ -1,5 +1,51 @@
 @tailwind base;
 @tailwind components;
+.bg-cc {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+} 
+.bg-ee {
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.bg-or {
+    background: #44A08D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.text-glow {
+    text-shadow: 0 0 80px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
+}
+.text-gradient {
+    background: linear-gradient(to right, #30CFD0, #c43ad6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+:root {
+    /* violet */
+    --primary-color: 111, 76, 255;
+  
+    /* white */
+    --text-color: 256, 256, 256;
+  }
+.tick-primary {
+    background-color: rgb(var(--primary-color));
+    border: 1px solid rgb(var(--primary-color));
+    color: rgb(var(--text-color));
+}
+.btn-glow {
+    box-shadow: rgba(var(--primary-color), 0.5) 0px 0px 20px 0px;
+}
+.quad-trans {
+    border: 1px solid rgba(var(--primary-color), 0.5);
+    color: rgba(var(--text-color), 0.9);
+}
+.semi-trans {
+    /* background-color: rgba(var(--primary-color), 0.35); */
+    border: 1px solid rgba(var(--primary-color), 0.5);
+    color: rgba(var(--text-color), 0.9);
+}
 @tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
