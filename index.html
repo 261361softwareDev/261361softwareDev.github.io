@@ -16,54 +16,65 @@
 <!-- bg-[#1b1d20] -->
 <body id="main_body" class="font-kanit bg-ee">
 
-    <header class="text-6xl font-bold text-[#f5f5f7] text-center mt-10">
-        <h1 class="uppercase tracking-tighter text-glow">AreYouWorking</h1>
+    <header class="text-6xl font-bold text-[#f5f5f7] text-center mt-10 px-4">
+        <h1 class="uppercase tracking-tighter text-glow">Are You Working</h1>
         <p class="text-lg font-light text-gradient">CPE-261361 | Software Engineering team</span>. </p>
     </header>
 
-    <div class="work-info container grid grid-cols-3 gap-4 mx-auto max-w-3xl mt-20 text-[#f5f5f7]">
+    <div class="p-4 space-y-10 max-w-3xl mx-auto mt-10 text-[#f5f5f7]">
 
-        <div class="assignment">
-            <div class="assignment-title bg-black rounded-t-lg py-2 tick-primary btn-glow">
-                <h1 class="font-semibold text-2xl text-center">Assignment</h1>
+        <div class="flex flex-col justify-between md:flex-row w-full space-y-4 md:space-y-0">
+            <!-- Assignment -->
+            <div class="">
+                <!-- Assignment Title -->
+                <div class="bg-black rounded-t-lg py-2 tick-primary btn-glow">
+                    <h1 class="font-semibold text-2xl text-center">Assignment</h1>
+                </div>
+                <!-- Assignment Content -->
+                <div class="bg-black bg-opacity-30 rounded-b-lg quad-trans ">
+                    <ul class="px-10 py-4">
+                        <li>Pre A1: Project Proposal Draft ✔️</li>
+                        <li> A1: <a class="underline text-blue-600" href="https://github.com/AreYouWorking/AreYouWorking.github.io/blob/main/src/pdf/A1_Proposal.pdf" target="_blank">
+                            Proposal ( Link )   </a><i class="fa-brands fa-github"> ✔️ </i></li>
+                        <li>A2: SNR</li>
+                        <li>A3: Design</li>
+                        <li>A4: Sprint 1</li>
+                        <li>A5: Testing Document</li>
+                        <li>A6: Sprint 2</li>
+                        <li>A6: System Document</li>
+                    </ul>
+                </div>
             </div>
-            <div class="assignment-content bg-black bg-opacity-30 rounded-b-lg quad-trans ">
-                <ul class="px-10 py-4">
-                    <li>Pre A1: Project Proposal Draft ✔️</li>
-                    <li> A1: <a class="underline text-blue-600" href="https://github.com/AreYouWorking/AreYouWorking.github.io/blob/main/src/pdf/A1_Proposal.pdf" target="_blank">
-                           Proposal ( Link )   </a><i class="fa-brands fa-github"> ✔️ </i></li>
-                    <li>A2: SNR</li>
-                    <li>A3: Design</li>
-                    <li>A4: Sprint 1</li>
-                    <li>A5: Testing Document</li>
-                    <li>A6: Sprint 2</li>
-                    <li>A6: System Document</li>
-                </ul>
+
+            <!-- Related Links -->
+            <div class="">
+                <!-- Related Links Title -->
+                <div class="bg-black rounded-t-lg py-2 tick-primary btn-glow">
+                    <h1 class="font-semibold text-2xl text-center">Related Links</h1>
+                </div>
+                <!-- Related Links Content -->
+                <div class="bg-black bg-opacity-30 rounded-b-lg quad-trans">
+                    <ul class="px-10 py-4">
+                        <li><a href="https://github.com/AreYouWorking" target="_blank"><i class="fa-brands fa-github"></i>
+                                github.com/AreYouWorking</a></li>
+                        <li><a href="https://github.com/AreYouWorking/Air-pollution-awareness" target="_blank"><i class="fa-brands fa-github"></i>
+                                Air Pollution Awareness Project</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <div class="related-link">
-            <div class="related-link-title bg-black rounded-t-lg py-2 tick-primary btn-glow">
-                <h1 class="font-semibold text-2xl text-center">Related Links</h1>
-            </div>
-            <div class="related-link-content bg-black bg-opacity-30 rounded-b-lg quad-trans">
-                <ul class="px-10 py-4">
-                    <li><a href="https://github.com/AreYouWorking" target="_blank"><i class="fa-brands fa-github"></i>
-                            github.com/AreYouWorking</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="work-log col-span-2">
-            <div class="work-log-title bg-black rounded-t-lg py-2 tick-primary btn-glow">
+        <!-- Work Log -->
+        <div class="">
+            <div class="bg-black rounded-t-lg py-2 tick-primary btn-glow">
                 <h1 class="font-semibold text-2xl text-center">Air Pollution Awareness | Work Log</h1>
             </div>
-            <div class="work-log-content bg-black bg-opacity-30 rounded-b-lg quad-trans">
+            <div class="px-8 bg-black bg-opacity-30 rounded-b-lg max-h-screen">
  
+                <!-- List of commits -->
+                <ul class="py-4 overflow-auto h-full" id="commit">
 
-                <div class="px-4 py-4" id="commit">
-
-                </div>
+                </ul>
 
                 <script>
                     async function fetchcommitJSON() {
@@ -100,13 +111,12 @@
                     }) 
             
                     function updataDOMcommit(commitData) {
-                        const list = document.createElement('ul');
                         document.getElementById('commit').innerHTML  =  commitData.map(data =>
                         `
-                        <div class="px-4">
-                            <p class="">- <span class="">${data.commit.author}</span> : <a href=${data.html_url} target="_blank"
+                        <li>
+                            <p class=""> - <span class="">${data.commit.author}</span> : <a href=${data.html_url} target="_blank"
                             class="underline text-blue-600">${data.commit.message}</a></p>   
-                        </div>  
+                        </li>
                         `
                         ).join('')
         
@@ -116,86 +126,77 @@
         </div>
     </div>
 
-    <div class="member mx-auto text-[#f5f5f7] mt-20">
-        <div class="member-title text-center mt-2">
+    <!-- Member -->
+    <div class="mx-auto text-[#f5f5f7] mt-20">
+        <!-- Member title -->
+        <div class="text-center mt-2">
             <h1 class="font-semibold text-4xl text-center text-glow">Our Team</h1>
         </div>
 
-        <div class="grid justify-items-center space-y-12 text-lg mt-20 font-normal">
+        <div class="grid justify-items-center space-y-12 text-lg mt-10 font-normal max-w-3xl mx-auto px-4">
 
-            <div class="w-3/5">
-                <div class="max-h-90  flex justify-between bg-black bg-opacity-30 rounded-lg semi-trans">
-                    <ul class="px-4 py-4">
-                        <li>Full name: ธนดล เดชประภากร (Tanadol Deachprapakorn)</li>
-                        <li> Nickname: ภู (Phu)</li>
-                        <li> Code: 630610734</li>
-                        <li>Role: Developer</li>
-                        <a href="https://github.com/PutawanDE" target="_blank"
-                            class="underline text-blue-600">github: PutawanDE</a>
-                    </ul>
-                    <img class="object-contain  w-48 rounded-lg" src="src\pic\phu.png">
-                </div>
+            <div class="flex flex-row flex-wrap justify-between bg-black bg-opacity-30 rounded-lg semi-trans w-full">
+                <ul class="px-4 py-4">
+                    <li>Full name: ธนดล เดชประภากร (Tanadol Deachprapakorn)</li>
+                    <li> Nickname: ภู (Phu)</li>
+                    <li> Code: 630610734</li>
+                    <li>Role: Developer</li>
+                    <a href="https://github.com/PutawanDE" target="_blank"
+                        class="underline text-blue-600">github: PutawanDE</a>
+                </ul>
+                <img class="object-contain w-48 rounded-lg" src="src\pic\phu.png">
             </div>
 
 
-            <div class="w-3/5 mt-4">
-                <div class="max-h-90  flex justify-between bg-black bg-opacity-30 rounded-lg semi-trans">
-                    <ul class="px-4 py-4">
-                        <li>Full name: ธนวัตน์ บำเพ็งพันธุ์ (Thanawat Bumpengpun)</li>
-                        <li> Nickname: บูม (Boom)</li>
-                        <li> Code: 630610736</li>
-                        <li>Role: Tester</li>
-                        <a href="https://github.com/0736b" target="_blank"
-                            class="underline text-blue-600">github: 0736b</a>
-                    </ul>
-                    <img class="object-contain  w-48 rounded-lg" src="src\pic\boom.png">
-                </div>
+            <div class="flex flex-row flex-wrap justify-between bg-black bg-opacity-30 rounded-lg semi-trans w-full">
+                <ul class="px-4 py-4">
+                    <li>Full name: ธนวัตน์ บำเพ็งพันธุ์ (Thanawat Bumpengpun)</li>
+                    <li> Nickname: บูม (Boom)</li>
+                    <li> Code: 630610736</li>
+                    <li>Role: Tester</li>
+                    <a href="https://github.com/0736b" target="_blank"
+                        class="underline text-blue-600">github: 0736b</a>
+                </ul>
+                <img class="object-contain  w-48 rounded-lg" src="src\pic\boom.png">
             </div>
 
 
-            <div class="w-3/5 mt-4">
-                <div class=" flex justify-between bg-black bg-opacity-30 rounded-lg semi-trans">
-                    <ul class="px-4 py-4">
-                        <li>Full name: ธนัตถ์ ตั้งอั้น (Tanat Tangun) </li>
-                        <li> Nickname: ริว (Riw)</li>
-                        <li> Code: 630610737</li>
-                        <li>Role: Developer</li>
-                        <a href="https://github.com/RiwEZ" target="_blank"
-                            class="underline text-blue-600">github: RiwEZ</a>
-                    </ul>
-                    <img class="object-contain   w-48 rounded-lg" src="src\pic\riw.jpg">
-                </div>
+            <div class="flex flex-row flex-wrap justify-between bg-black bg-opacity-30 rounded-lg semi-trans w-full">
+                <ul class="px-4 py-4">
+                    <li>Full name: ธนัตถ์ ตั้งอั้น (Tanat Tangun) </li>
+                    <li> Nickname: ริว (Riw)</li>
+                    <li> Code: 630610737</li>
+                    <li>Role: Developer</li>
+                    <a href="https://github.com/RiwEZ" target="_blank"
+                        class="underline text-blue-600">github: RiwEZ</a>
+                </ul>
+                <img class="object-contain   w-48 rounded-lg" src="src\pic\riw.jpg">
             </div>
 
-            <div class="w-3/5 mt-4">
-                <div class=" flex justify-between bg-black bg-opacity-30 rounded-lg semi-trans">
-                    <ul class="px-4 py-4">
-                        <li>Full name: ภูริช สีนวลแล (Purich Seenuallae) </li>
-                        <li> Nickname: ภู (Pooh)</li>
-                        <li> Code: 630610752</li>
-                        <li>Role: Developer, UX/UI Designer</li>
-                        <a href="https://github.com/Bug-Too" target="_blank"
-                            class="underline text-blue-600">github: Bug-Too</a>
-                    </ul>
-                    <img class="object-contain   w-48 rounded-lg" src="src\pic\rich.png">
-                </div>
-
+            <div class="flex flex-row flex-wrap justify-between bg-black bg-opacity-30 rounded-lg semi-trans w-full">
+                <ul class="px-4 py-4">
+                    <li>Full name: ภูริช สีนวลแล (Purich Seenuallae) </li>
+                    <li> Nickname: ภู (Pooh)</li>
+                    <li> Code: 630610752</li>
+                    <li>Role: Developer, UX/UI Designer</li>
+                    <a href="https://github.com/Bug-Too" target="_blank"
+                        class="underline text-blue-600">github: Bug-Too</a>
+                </ul>
+                <img class="object-contain   w-48 rounded-lg" src="src\pic\rich.png">
             </div>
 
-            <div class="w-3/5 mt-4">
-                <div class="h-90  flex justify-between bg-black bg-opacity-30 rounded-lg semi-trans">
-                    <ul class="px-4 py-4">
-                        <li>Full name: พงศกร รัตนพันธ์ (Pongsakorn Rattanapan)</li>
-                        <li> Nickname: ก้อง (Gong)</li>
-                        <li> Code: 630610749</li>
-                        <li>Role: SA , Project manager </li>
-                        <a href="https://github.com/min23asdw" target="_blank"
-                            class="underline text-blue-600">github: min23asdw</a>
-                    </ul>
-                    <img class="object-contain  w-48  rounded-lg" src="src\pic\gong.png">
-                </div>
-            </div>
 
+            <div class="flex flex-row flex-wrap justify-between bg-black bg-opacity-30 rounded-lg semi-trans w-full">
+                <ul class="px-4 py-4">
+                    <li>Full name: พงศกร รัตนพันธ์ (Pongsakorn Rattanapan)</li>
+                    <li> Nickname: ก้อง (Gong)</li>
+                    <li> Code: 630610749</li>
+                    <li>Role: SA , Project manager </li>
+                    <a href="https://github.com/min23asdw" target="_blank"
+                        class="underline text-blue-600">github: min23asdw</a>
+                </ul>
+                <img class="object-contain w-48 rounded-lg" src="src\pic\gong.png">
+            </div>
         </div>
 
     </div>
@@ -203,10 +204,6 @@
     <footer class="bg-black text-center mt-20 tick-primary btn-glow">
         <h4 class="text-white text-md font-light py-2 text-glow">CPE-261361 | Software Engineering</h4>
     </footer>
-
-    </div>
-
-
 </body>
 
 </html>
