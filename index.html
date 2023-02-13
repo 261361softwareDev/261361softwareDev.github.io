@@ -89,6 +89,7 @@
                     let filter = function(obj) {
                         let name_dict = {
                             "0736b": 'Thanawat',
+                            "Thanawat": 'Thanawat',
                             "PutawanDE": 'Tanadol',
                             "Tanadol Deachprapakorn": 'Tanadol',
                             "RiwEZ": 'Tanat',
@@ -98,7 +99,7 @@
                             "Pooh": 'Purich',
                             "min23asdw": 'Pongsakorn'
                         }
-                        console.log(obj.commit.author)
+                        console.log(obj.commit.author.name)
                         return{
                                 "html_url": obj.html_url,
                                 "commit": {
